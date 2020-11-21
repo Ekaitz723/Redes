@@ -1,0 +1,387 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Cleese Assignment
+% Structure Specification File
+% Version 1.0 (27/5/2018)
+%
+% This template originates from:
+% http://www.LaTeXTemplates.com
+%
+% Author:
+% Vel (vel@LaTeXTemplates.com)
+%
+% Modified by:
+% Ekaitz Arriola Garcia
+%
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	Sortak eta bestelako dokumentu-konfigurazioak
+%----------------------------------------------------------------------------------------
+
+\usepackage{lastpage}           % Plama-oinaren azken orrialdearen zenbakia xedatzeko
+
+\usepackage{graphicx}           % Irudientzat beharrezkoa
+
+\setlength\parindent{0pt}       % Paragrafoetatik koska guztiak kentzen ditu
+
+\usepackage[most]{tcolorbox}    % Orrialde artean zatitzen den kutxentzat beharrezkoa
+
+\usepackage{booktabs}           % Taulen lerro horizontal hoberentzat beharrezkoa
+
+\usepackage{listings}           % Kodearentzat beharrezkoa
+
+\usepackage{etoolbox}           % If adierazpenentzat beharrezkoa
+
+\usepackage{lipsum}             % Testu betegarriarentzat beharrezkoa
+
+\usepackage{xparse}             % Parametroekin gauza gehiago egiteko aukera ematen du
+
+\usepackage{units}              % Zatidura politagoak (\nicefrac{3}{8})
+
+\usepackage{xypic}              % Grafikoak fletxeekin
+
+\usepackage{contour}            % Hizkientzako koloredun kontornoa
+
+\usepackage{listings}           % Zerrendatuak
+\usepackage[listings]{tcolorbox}
+\tcbuselibrary{listings}
+\tcbset{listing engine=listings}
+\tcbuselibrary{listingsutf8}
+
+\usepackage{color}
+\definecolor{gray97}{gray}{.97}
+\definecolor{gray75}{gray}{.75}
+\definecolor{gray45}{gray}{.45}
+
+\usepackage[
+	section,
+	cache=true,
+	cachedir={\detokenize{~/.cache/minted}},
+	newfloat=false
+]{minted} % Kode hobeagoa
+
+\usepackage{caption, subcaption} % Testu eta azpi-testu gehiagorako aukera ematen du
+
+\usepackage[x11names]{xcolor} % Kolore-izen batzuk
+
+% Azpi-fitxategiak
+\usepackage{subfiles} % Best loaded last in the preamble
+\usepackage{import}
+
+%----------------------------------------------------------------------------------------
+%	Marjinak
+%----------------------------------------------------------------------------------------
+
+\usepackage{geometry} % Plama dimentsio eta marjinak doitzeko beharrezkoa
+
+\geometry{
+	paper=a4paper, % Aldatu plama mota
+	top=3cm, % Goiko marjina
+	bottom=3cm, % Behe-marjina
+	left=2.5cm, % Ezker-marjina
+	right=2.5cm, % Eskuin marjina
+	headheight=14pt, % Idazpuru altuera
+	footskip=1.4cm, % Beheko ertzetik plama-oineko lerroraino tartea
+	headsep=1.2cm, % Goiko ertzetik idazpuruko lerroraino tartea
+	%showframe, % Deskomentatu orrialdean blokea nola dagoen agertzeko
+}
+
+%----------------------------------------------------------------------------------------
+%	Letra-iturri
+%----------------------------------------------------------------------------------------
+
+\usepackage[utf8]{inputenc} % Karaktere internazionalentzat beharrezkoa
+\usepackage[T1]{fontenc} % Ageritzen du karaktere internazionalentzako letra-iturri kodetzea 
+\usepackage[default]{lato} % Lato letra-iturri erabiltzeko
+
+%----------------------------------------------------------------------------------------
+%	Idazpuru eta plama-oinak
+%----------------------------------------------------------------------------------------
+
+\usepackage{fancyhdr} % Idazpuru eta plama-oinak egokitzeko beharrezkoak
+
+\pagestyle{fancy} % Gaitu egokitako idazpuru eta plama-oinak
+
+\lhead{\small\assignmentClass\ - \assignmentTitle} % Ezker-idazpuru; Ageri instruktorea kakotzen artean ezarrita egoterakoan
+\chead{} % Erdiko idazpuru
+\rhead{\small\ifdef{\assignmentAuthorName}{\assignmentAuthorName}{\ifdef{\assignmentDueDate}{Due\ \assignmentDueDate}{}}} % Eskumako idazpuru; Ageri egile-izena ezarrita bazegoen, bestela data ezarrita egoterakoan
+
+%\lfoot{} % Ezker plama-oin
+\cfoot{} % Erdiko plama-oin
+\rfoot{\small Página\ \thepage\ -\ \pageref{LastPage}} % Eskumako plama-oin
+
+\renewcommand\headrulewidth{0.5pt} % Idazpuruaren lerroko loditasuna
+
+%----------------------------------------------------------------------------------------
+%	Ataleko estiloa alderatu
+%----------------------------------------------------------------------------------------
+
+\usepackage{titlesec} % Atalak alderatzeko beharrezkoa
+
+%------------------------------------------------
+% Atala
+
+\titleformat
+{\section} % Atala alderatze
+[block] % Mota hauetakoak izan daitezke: eseki, blokeatu, erakutsi, errunin, ezkutu, rightmargin, tanta, tanta, markoa
+        % hang, block, display, runin, leftmargin, rightmargin, drop, wrap, frame
+{\Large\bfseries} % Atal osoko formatua
+{\assignmentQuestionName~\thesection} % Atal labeleko formatua
+{6pt} % Izenburutik labeleraino tartea
+{} % Label baino lehenagoko kodea
+
+\titlespacing{\section}{0pt}{0.5\baselineskip}{0.5\baselineskip} % Atal izenburuen inguruko tarteak, ordena hau da: ezkerrera, aurretik eta ondoren
+
+%------------------------------------------------
+% Azpiatala
+
+\titleformat
+{\subsection} % Azpiatala alderatze
+[block] % Mota hauetakoak izan daitezke: eseki, blokeatu, erakutsi, errunin, ezkutu, rightmargin, tanta, tanta, markoa
+        % hang, block, display, runin, leftmargin, rightmargin, drop, wrap, frame
+{\itshape} % Atal osoko formatua
+{(\alph{subsection})} % Atal labeleko formatua
+{4pt} % Izenburutik labeleraino tartea
+{} % Label baino lehenagoko kodea
+
+\titlespacing{\subsection}{0pt}{0.5\baselineskip}{0.5\baselineskip} % Atal izenburuen inguruko tarteak, ordena hau da: ezkerrera, aurretik eta ondoren
+
+\renewcommand\thesubsection{(\alph{subsection})}
+
+%----------------------------------------------------------------------------------------
+%	Ingurumen/komando pertsonalizatuak 
+%----------------------------------------------------------------------------------------
+
+%Forzar elemento en el indice {tipo de elemento}{nombre}
+\newcommand{\palindice}[2]{\addcontentsline{toc}{#1}{#2}}
+
+%------------------------------------------------
+
+% Laneko galderak jartzeko ingurumena
+\newenvironment{question}{
+	\vspace{0.5\baselineskip} % Zuriunea galderaren aurretik
+	\section{} % Atalaren izenburu hutsa (adib. Galdera 2 baino ez)
+	%\palindice{section}{Primera Pregrunta}
+	\lfoot{\small\itshape\assignmentQuestionName~\thesection~continua en la siguiente página\ldots} % Set the left footer to state the question continues on the next page, this is reset to nothing if it doesn't (below)
+}{
+	\lfoot{} % Reset the left footer to nothing if the current question does not continue on the next page
+}
+
+%------------------------------------------------
+
+% Environment for subquestions, takes 1 argument - the name of the section
+\newenvironment{subquestion}[1]{
+	\subsection{#1}
+}{
+}
+
+\newenvironment{subsubquestion}[1]{
+    \hspace{}
+	\subsubsection{#1}
+}{
+}
+
+%------------------------------------------------
+
+% Environment for subquestions, takes 1 argument - the name of the section (Markoztatutako Subquestion
+\newenvironment{mksubquestion}[1]{
+	\subsection{\markoztatu{#1}}
+}{
+}
+
+%------------------------------------------------
+
+% Command to print a question sentence
+\newcommand{\questiontext}[1]{
+	\begin{gtmarkoztatu}
+	\text{}{#1}
+	\end{gtmarkoztatu}
+	\vspace{0.5\baselineskip} % Whitespace afterwards
+}
+
+% Version con mayus
+\newcommand{\questionText}[1]{
+	\begin{gtmarkoztatu}
+	\text{}{#1}
+	\end{gtmarkoztatu}
+	\vspace{0.5\baselineskip} % Whitespace afterwards
+}
+%------------------------------------------------
+
+% Command to print a box that breaks across pages with the question answer
+\newcommand{\answer}[1]{
+	\begin{tcolorbox}[breakable, enhanced]
+		#1
+	\end{tcolorbox}
+}
+
+%------------------------------------------------
+
+% Command to print a box that breaks across pages with the space for a student to answer
+\newcommand{\answerbox}[1]{
+	\begin{tcolorbox}[breakable, enhanced]
+		\vphantom{L}\vspace{\numexpr #1-1\relax\baselineskip} % \vphantom{L} to provide a typesetting strut with a height for the line, \numexpr to subtract user input by 1 to make it 0-based as this command is
+	\end{tcolorbox}
+}
+
+%------------------------------------------------
+
+% Command to print an assignment section title to split an assignment into major parts
+\newcommand{\assignmentSection}[1]{
+	{
+		\centering % Centre the section title
+		\vspace{2\baselineskip} % Whitespace before the entire section title
+		
+		\rule{0.8\textwidth}{0.5pt} % Horizontal rule
+		
+		\vspace{0.75\baselineskip} % Whitespace before the section title
+		{\LARGE \MakeUppercase{#1}} % Section title, forced to be uppercase
+		
+		\rule{0.8\textwidth}{0.5pt} % Horizontal rule
+		
+		\vspace{\baselineskip} % Whitespace after the entire section title
+	}
+}
+
+%------------------------------------------------
+
+% Zeozer markoztatzeko komandoa (edukira doitu) (Gogoratu // jarri behar dela)
+\newcommand{\markoztatu}[1]{\fboxrule=0.5pt \fboxsep=6pt\fbox{#1}}
+\newcommand{\enmarcar}[1]{\fboxrule=0.5pt \fboxsep=6pt\fbox{#1}}
+
+% Zeozer markoztatzeko ingurumena (orrira doitu)
+\newsavebox{\kutxan} % gtmarkoztatu (guztiz markoztatu) -ko ingurumenaren definizioa
+\newenvironment{gtmarkoztatu}
+    {\begin{center} \begin{lrbox}{\kutxan}\begin{minipage}{.98\textwidth}}
+    {\end{minipage}\end{lrbox}\fboxrule=1pt \fboxsep=6pt\fbox{\usebox{\kutxan}} \end{center} }
+
+%------------------------------------------------
+
+%Figura (Con imagen (una) ) {escala}{path}{caption}
+\newcommand{\irudi}[3]{
+    \vspace{0.3cm}
+    \begin{figure}[!h]
+    	\centering
+    	\includegraphics[#1]{img/#2}
+    	\ifblank{#3}{}{\caption{#3}}
+    	\label{fig:01} % Deskomentatu agertzeko irudi-zenbakia
+    \end{figure}
+    \hfill
+    \vspace{0.5cm}
+}
+
+\newcommand{\irudisuelto}[3]{
+\tcbset{colframe=blue!50!black,colback=white,colupper=red!50!black,fonttitle=\bfseries,nobeforeafter,center title}
+                \tcbox[left=0mm,right=0mm,top=0mm,bottom=0mm,boxsep=1mm,arc=0mm,boxrule=0.5pt,title=#3]
+                {\includegraphics[#1]{img/#2}}
+}
+
+%------------------------------------------------
+
+\newcommand{\PATO}{
+    \noindent\makebox[\linewidth]{\rule{\paperwidth}{10pt}}
+}
+
+% Zerredatuak
+
+% \newcommand{zerrMarkoztatu}[1]{
+%     \begin{tcblisting}{colback=black!5,colframe=black!50!black,title=Declaración de la zona y del archivo de zona, listing only,hbox,enhanced,before=\begin{center},after=\end{center},listing options={numbers=left,numbersep=5pt,numberstyle=\tiny,numberfirstline = false,breaklines=true,language=C}}
+%     {#1}
+%     \end{tcblisting}   
+% }
+
+% \lstset{ frame=Ltb,
+% framerule=0pt,
+% aboveskip=0.5cm,
+% framextopmargin=3pt,
+% framexbottommargin=3pt,
+% framexleftmargin=0.2cm,
+% framexrightmargin=0.2cm,
+% framesep=0pt,
+% rulesep=.4pt,
+% backgroundcolor=\color{gray97},
+% rulesepcolor=\color{black},
+% %
+% stringstyle=\ttfamily,
+% showstringspaces = false,
+% basicstyle=\small\ttfamily,
+% commentstyle=\color{gray45},
+% keywordstyle=\bfseries,
+% %
+% numbers=left,
+% numbersep=15pt,
+% numberstyle=\tiny,
+% numberfirstline = false,
+% breaklines=true,
+% }
+
+% \lstnewenvironment{listing}[1][]
+% {\lstset{#1}\pagebreak[0]}{\pagebreak[0]}
+
+% \lstdefinestyle{consola}
+% {basicstyle=\scriptsize\bf\ttfamily,
+% backgroundcolor=\color{gray75},
+% }
+
+% \lstdefinestyle{C}
+% {language=C,
+% }
+% \newenvironment{irudi}[2]{
+%     \vspace{#1}
+%     #1
+%     \vspace{#2}
+% }
+
+% %Figura (Con imágenes (más de una) )
+% \vspace{0.3cm}
+% \begin{figure}[!h]
+%     \centering
+%     \subfloat[Mínimos]{
+%         \includegraphics[width=0.5\textwidth]{cinco/cincoWolUno.PNG}
+%         }
+%     \subfloat[Máximos]{
+%         \includegraphics[width=0.5\textwidth]{cinco/cincoWolDos.PNG}
+%     }
+%     \newline
+%     \subfloat[Puntos de Inflexión]{
+%         \includegraphics[width=0.5\textwidth]{cinco/cincoWolTres.PNG}
+%     }
+%  \caption{Máximos, mínimos y puntos de inflexión de la función f(x) en WolframAlpha}
+%  \label{fig:01}
+% \end{figure}
+% \hfill
+% \vspace{0.5cm}
+% %Otro ejemplo multi-imagen
+% \vspace{0.3cm}
+% \begin{figure}[!h]
+%     \centering
+%     \subfloat[Área aritmética]{
+%         \includegraphics[width=0.5\textwidth]{nueve/9Waritmetica.PNG}
+%         }
+%     \subfloat[Área geométrica]{
+%         \includegraphics[width=0.5\textwidth]{nueve/9Wgeometrica.PNG}
+%     }
+%  \caption{Área aritmética y geométrica en WolframAlpha}
+%  \label{fig:01}
+% \end{figure}
+% \hfill
+% \vspace{0.5cm}
+
+%----------------------------------------------------------------------------------------
+%	Izenburu orrialdea
+%----------------------------------------------------------------------------------------
+
+% \author{\textbf{\assignmentAuthorName}} % Set the default title page author field
+% \date{} % Don't use the default title page date field
+
+% \title{
+% 	\thispagestyle{empty} % Suppress headers and footers
+% 	\vspace{0.2\textheight} % Whitespace before the title
+% 	\textbf{\assignmentClass:\ \assignmentTitle}\\[-4pt]
+% 	\ifdef{\assignmentDueDate}{{\small Due\ on\ \assignmentDueDate}\\}{} % If a due date is supplied, output it
+% 	\ifdef{\assignmentClassInstructor}{{\large \textit{\assignmentClassInstructor}}}{} % If an instructor is supplied, output it
+% 	\vspace{0.32\textheight} % Whitespace before the author name
+% }
