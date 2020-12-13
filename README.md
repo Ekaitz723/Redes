@@ -1,2 +1,4 @@
 # Redes de Ordenadores
-Prueba par a ver si puedo hacer commit
+
+Gerardo Escudero López
+Ekaitz Arriola Garcia
