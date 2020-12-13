@@ -16,7 +16,7 @@ iptables -t filter -F OUTPUT
 iptables -t filter -F INPUT
 iptables -t filter -F FORWARD
 
-#por defecto se utilizará la paolitica de whitelisting
+#por defecto se utilizará la politica de whitelisting
 echo "WHITELISTING"
 iptables -t filter -P FORWARD DROP
 iptables -t filter -P INPUT DROP
