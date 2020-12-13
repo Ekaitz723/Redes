@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <style>
+            * {
+                color: floralwhite;
+            }
+            .zoom {
+                background-color: rebeccapurple;
+                transition: transform .2s;
+                width: 200px;
+                height: 200px;
+                margin: 0 auto;
+            }
+            .zoom:hover {
+                transform: scale(1.5);
+            }
+            body {
+                display: flex;
+                justify-content: center;
+            }
+            .container {
+                margin-top: 100pt;
+                background-color: gray;
+                padding: 20pt;
+                text-align: center;
+            }
+            .child {
+                position: static;
+                display: inline-block;
+                border: 1px solid blue;
+                text-align: center;
+                vertical-align: bottom;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div><p>Práctica de Redes de Ordenadores:</p></div>
+            <div class="child zoom">
+                <p>Gerardo</p>
+            </div>
+            <div class="child zoom">
+                <p>Ekaitz</p>
+            </div>
+        </div>
+        
+    </body>
+</html>
