@@ -5,6 +5,9 @@ clear
 
 echo "******"
 
+echo "Configurar como router"
+sysctl net.ipv4.ip_forward=1
+
 #echo "BLACKLISTING"
 #iptables -t filter -P FORWARD ACCEPT
 #iptables -t filter -P INPUT ACCEPT
