@@ -12,6 +12,6 @@ iptables -t filter -F OUTPUT
 iptables -t filter -F INPUT
 iptables -t filter -F FORWARD
 
-#ahora tod será aceptado
+#ahora todo será aceptado
 
 
