@@ -47,11 +47,16 @@ echo "youtube le devuelve"
 iptables -t filter -A FORWARD -d 192.168.20.0/24 -p tcp --sport 80  -j ACCEPT
 iptables -t filter -A FORWARD -d 192.168.20.0/24 -p tcp --sport 443 -j ACCEPT
 
-
+# Correccion. Antes:
+# echo "DNS IDA LIBRE"
+# iptables -t filter -A FORWARD -d 192.168.10.0/24 -p udp --dport 53 -j ACCEPT
+# echo "DNS VUELTA LIBRE"
+# iptables -t filter -A FORWARD -s 192.168.10.0/24 -p udp --sport 53 -j ACCEPT 
+# Ahora:
 echo "DNS IDA LIBRE"
-iptables -t filter -A FORWARD -d 192.168.10.0/24 -p udp --dport 53 -j ACCEPT
+iptables -t filter -A FORWARD -d 192.168.10.0/24 -s 192.168.20/24 -p udp --dport 53 -j ACCEPT
 echo "DNS VUELTA LIBRE"
-iptables -t filter -A FORWARD -s 192.168.10.0/24 -p udp --sport 53 -j ACCEPT
+iptables -t filter -A FORWARD -s 192.168.10.0/24 -d 192.168.20/24 -p udp --sport 53 -j ACCEPT
 echo 	' '
 echo    ' '
 echo   '-__-'
